@@ -1,3 +1,19 @@
 import { Routes } from '@angular/router';
+import { CategoriaCrud } from './views/categoria-crud/categoria-crud';
+import { Home } from './views/home/home';
+import { CategoryCreate } from './components/category/category-create/category-create';
 
-export const routes: Routes = [];
+export const routes: Routes = [
+   {
+    path: "",
+    component: Home
+  },
+  {
+    path: "categories",
+    component: CategoriaCrud
+  },
+  {
+    path: "categories/create",
+    component: CategoryCreate
+  }
+];
