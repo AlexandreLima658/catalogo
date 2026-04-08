@@ -1,8 +1,53 @@
-<div class="flex">
-  <ul>
-    @for (category of categories; track category.id) {
-      <li> {{ category.id }}</li>
-      <li> {{ category.name }}</li>
-    }
-  </ul>
+<div
+  class="ml-5 mt-12 px-6 py-5 relative flex flex-col text-gray-700 bg-gray-50 shadow-md rounded-xl ">
+  <table class="w-full text-left table-auto min-w-max">
+    <thead>
+      <tr>
+        <th class="p-4 border-b border-blue-gray-100 bg-blue-gray-50">
+          <p class="block font-sans text-sm antialiased font-normal leading-none text-blue-gray-900 opacity-70">
+            Name
+          </p>
+        </th>
+        <th class="p-4 border-b border-blue-gray-100 bg-blue-gray-50">
+          <p class="block font-sans text-sm antialiased font-normal leading-none text-blue-gray-900 opacity-70">
+            Description
+          </p>
+        </th>
+        <th class="p-4 border-b border-blue-gray-100 bg-blue-gray-50">
+          <p class="block font-sans text-sm antialiased font-normal leading-none text-blue-gray-900 opacity-70">
+            Status
+          </p>
+        </th>
+        <th class="p-4 border-b border-blue-gray-100 bg-blue-gray-50">
+          <p class="block font-sans text-sm antialiased font-normal leading-none text-blue-gray-900 opacity-70"></p>
+        </th>
+      </tr>
+    </thead>
+    <tbody>
+      @for (category of categories; track category.categoryId) {
+      <tr>
+        <td class="p-4 border-b border-blue-gray-50">
+          <p class="block font-sans text-sm antialiased font-normal leading-normal text-blue-gray-900">
+            {{category.name}}
+          </p>
+        </td>
+        <td class="p-4 border-b border-blue-gray-50">
+          <p class="block font-sans text-sm antialiased font-normal leading-normal text-blue-gray-900">
+            {{category.description}}
+          </p>
+        </td>
+        <td class="p-4 border-b border-blue-gray-50">
+          <p class="block font-sans text-sm antialiased font-normal leading-normal text-blue-gray-900">
+            {{category.isActive}}
+          </p>
+        </td>
+        <td class="p-4 border-b border-blue-gray-50">
+          <a href="#" class="block font-sans text-sm antialiased font-medium leading-normal text-blue-gray-900">
+            Edit
+          </a>
+        </td>
+      </tr>
+      }
+    </tbody>
+  </table>
 </div>

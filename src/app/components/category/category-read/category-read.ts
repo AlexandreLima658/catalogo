@@ -18,10 +18,10 @@ export class CategoryRead implements OnInit{
   ){}
 
   ngOnInit(): void {
-    this.service.read().subscribe(c => {
-      this.categories = c.items
+    this.service.read().subscribe(category => {
+      this.categories = category
       this.cd.detectChanges()
-      console.log(c.items)
+      console.log(category)
     })
   }
 
