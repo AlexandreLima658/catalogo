@@ -2,6 +2,7 @@ import { Routes } from '@angular/router';
 import { CategoriaCrud } from './views/categoria-crud/categoria-crud';
 import { Home } from './views/home/home';
 import { CategoryCreate } from './components/category/category-create/category-create';
+import { CategoryUpdate } from './components/category/category-update/category-update';
 
 export const routes: Routes = [
    {
@@ -15,5 +16,9 @@ export const routes: Routes = [
   {
     path: "categories/create",
     component: CategoryCreate
+  },
+  {
+    path: "categories/update/:id",
+    component: CategoryUpdate
   }
 ];
