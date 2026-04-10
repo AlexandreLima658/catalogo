@@ -1,0 +1,28 @@
+
+<h2 class="ml-5 text-3xl font-bold mb-6">Delete Category</h2>
+
+<form [formGroup]="form" class="p-5 flex flex-col gap-4">
+
+  <input formControlName="name"
+         placeholder="Name"
+         class="border p-2 opacity-30 rounded focus:ring-2 focus:ring-blue-500 outline-none">
+
+  <input formControlName="description"
+         placeholder="Description"
+         class="border p-2 opacity-30 rounded focus:ring-2 focus:ring-blue-500 outline-none">
+
+  <div class="flex gap-2">
+    <button (click)="deleteCategory()"
+            [disabled]="form.invalid"
+            type="button"
+            class="bg-red-600 text-white px-4 py-2 rounded hover:bg-red-700 transition">
+      Delete
+    </button>
+
+    <button (click)="cancel()"
+            type="button"
+            class="bg-gray-300 text-black px-4 py-2 rounded hover:bg-gray-400 transition">
+      Cancel
+    </button>
+  </div>
+</form>

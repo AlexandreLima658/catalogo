@@ -41,4 +41,9 @@ export class CategoryService implements OnInit {
      return this.http.put<Category>(url, category)
   }
 
+  delete(id: string): Observable<Category> {
+    const url = `${this.baseUrl}/${id}`
+    return this.http.delete<Category>(url)
+  }
+
 }
