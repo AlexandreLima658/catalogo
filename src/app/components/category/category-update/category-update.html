@@ -1,19 +1,18 @@
-<h2 class="ml-5 text-3xl font-bold mb-6">New Category</h2>
+<h2 class="ml-5 text-3xl font-bold mb-6">Update Category</h2>
 
-<form class="p-5 flex flex-col gap-4">
-  <input [(ngModel)]="category.name"
-         name="name"
-         required
+<form [formGroup]="form" class="p-5 flex flex-col gap-4">
+
+  <input formControlName="name"
          placeholder="Name"
          class="border p-2 rounded focus:ring-2 focus:ring-blue-500 outline-none">
 
-  <input [(ngModel)]="category.description"
-         name="description"
+  <input formControlName="description"
          placeholder="Description"
          class="border p-2 rounded focus:ring-2 focus:ring-blue-500 outline-none">
 
   <div class="flex gap-2">
-    <button (click)="createCategory()"
+    <button (click)="updateCategory()"
+            [disabled]="form.invalid"
             type="button"
             class="bg-blue-500 text-white px-4 py-2 rounded hover:bg-blue-600 transition">
       Save

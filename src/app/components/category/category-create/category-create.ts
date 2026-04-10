@@ -2,18 +2,19 @@ import { Component, OnInit } from '@angular/core';
 import { Router } from '@angular/router';
 import { Category } from '../category-model';
 import { CategoryService } from '../category-service';
+import { FormsModule } from '@angular/forms'
 
 @Component({
   selector: 'app-category-create',
-  imports: [],
+  imports: [FormsModule, ],
   templateUrl: './category-create.html',
   styleUrl: './category-create.css',
 })
 export class CategoryCreate implements OnInit{
 
   category: Category = {
-    name: 'Filmes',
-    description: 'Melhor filme do ano',
+    name: '',
+    description: '',
     isActive: true
   }
 
