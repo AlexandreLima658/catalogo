@@ -57,7 +57,7 @@ export class CategoryUpdate implements OnInit{
     };
 
     this.service.update(category).subscribe(() => {
-      this.service.showMessage("Category updated!")
+      this.service.showMessage("Category Updated")
       this.router.navigate(["/categories"])
     })
   }

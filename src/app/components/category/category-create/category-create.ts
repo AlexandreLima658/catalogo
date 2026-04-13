@@ -30,7 +30,7 @@ export class CategoryCreate implements OnInit{
 
   createCategory(): void {
     this.service.create(this.category).subscribe(() => {
-      this.service.showMessage("Category create succesfully")
+      this.service.showMessage("Created successfully!")
       this.router.navigate(["/categories"])
     })
   }

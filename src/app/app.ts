@@ -1,6 +1,7 @@
 import { Component, signal } from '@angular/core';
 import { Header } from "./components/template/header/header";
 
+
 @Component({
   selector: 'app-root',
   imports: [Header],
