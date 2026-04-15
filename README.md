@@ -136,6 +136,10 @@ public class CategoryController {
 
 ### 🔙 Backend (Quarkus) - App quarkus
 
+```
+  git@github.com:AlexandreLima658/app-quarkus.git
+```
+
 ```bash
 git clone <repo-backend>
 
