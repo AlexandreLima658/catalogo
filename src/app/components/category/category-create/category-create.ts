@@ -12,7 +12,9 @@ import { FormsModule } from '@angular/forms'
 })
 export class CategoryCreate implements OnInit{
 
-  category: Category = {
+
+
+ category: Category = {
     name: '',
     description: '',
     isActive: true

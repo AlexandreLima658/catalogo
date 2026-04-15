@@ -52,4 +52,9 @@ export class CategoryService implements OnInit {
     return this.http.delete<Category>(url)
   }
 
+  countCategories(): Observable<number> {
+    const url = `${this.baseUrl}/count`
+    return this.http.get<number>(url)
+  }
+
 }

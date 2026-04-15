@@ -1,27 +1,42 @@
-<h2 class="ml-5 text-3xl font-bold mb-6">Update Category</h2>
 
-<form [formGroup]="form" class="p-5 flex flex-col gap-4">
 
-  <input formControlName="name"
-         placeholder="Name"
-         class="border p-2 rounded focus:ring-2 focus:ring-blue-500 outline-none">
+<div class="max-w-xl mx-auto mt-10 bg-slate-800/60 border border-slate-700 rounded-xl shadow-lg p-6 backdrop-blur">
 
-  <input formControlName="description"
-         placeholder="Description"
-         class="border p-2 rounded focus:ring-2 focus:ring-blue-500 outline-none">
+  <h2 class="text-2xl font-bold mb-6 text-white">
+    Update Category
+ </h2>
 
-  <div class="flex gap-2">
-    <button (click)="updateCategory()"
-            [disabled]="form.invalid"
-            type="button"
-            class="bg-blue-500 text-white px-4 py-2 rounded hover:bg-blue-600 transition">
-      Save
-    </button>
+  <form [formGroup]="form" class="flex flex-col gap-4">
 
-    <button (click)="cancel()"
-            type="button"
-            class="bg-gray-300 text-black px-4 py-2 rounded hover:bg-gray-400 transition">
-      Cancel
-    </button>
-  </div>
-</form>
+    <input formControlName="name"
+      placeholder="Name"
+      class="bg-slate-900/60 border border-slate-600 text-white placeholder-slate-400 p-3 rounded-lg
+             focus:outline-none focus:ring-2 focus:ring-indigo-500 focus:border-indigo-500 transition">
+
+    <input formControlName="description"
+      placeholder="Description"
+      class="bg-slate-900/60 border border-slate-600 text-white placeholder-slate-400 p-3 rounded-lg
+             focus:outline-none focus:ring-2 focus:ring-indigo-500 focus:border-indigo-500 transition">
+
+    <div class="flex gap-3 mt-4">
+
+      <button (click)="updateCategory()"
+        [disabled]="form.invalid"
+        type="button"
+        class="flex-1 bg-gradient-to-r from-indigo-500 to-blue-500
+               hover:from-indigo-400 hover:to-blue-400
+               disabled:opacity-50 disabled:cursor-not-allowed
+               text-white font-semibold py-2 rounded-lg shadow-md hover:shadow-lg transition">
+        Save
+      </button>
+
+      <button (click)="cancel()"
+        type="button"
+        class="flex-1 bg-slate-700 hover:bg-slate-600 text-white
+               py-2 rounded-lg transition">
+        Cancel
+      </button>
+
+    </div>
+  </form>
+</div>
