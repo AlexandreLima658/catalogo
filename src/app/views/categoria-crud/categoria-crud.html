@@ -1,18 +1,24 @@
-<div class="flex justify-between">
-  <h1 class="ml-5 text-3xl font-bold">
+<div class="flex items-center justify-between mb-8 px-5">
+
+  <h1 class="text-3xl font-bold
+             bg-gradient-to-r from-indigo-400 to-purple-400
+             bg-clip-text text-transparent">
     Categories
   </h1>
-  <button class="bg-blue-500
-      px-6 py-3 rounded-lg
-      ml-9
-      text-white
-      cursor-pointer
-      hover:bg-blue-400"
-       (click)="navigateToCategoryCreate()">
-      New Category
+
+  <button
+    (click)="navigateToCategoryCreate()"
+    class="bg-gradient-to-r from-indigo-500 to-blue-500
+           hover:from-indigo-400 hover:to-blue-400
+           text-white font-semibold
+           px-5 py-2.5 rounded-lg
+           shadow-md hover:shadow-lg
+           transition-all duration-300
+           flex items-center gap-2">
+
+    + New Category
   </button>
 
 </div>
 
 <app-category-read></app-category-read>
-

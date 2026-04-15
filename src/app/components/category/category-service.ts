@@ -2,7 +2,7 @@ import { Injectable, OnInit } from '@angular/core';
 import { Category } from './category-model';
 import { Observable } from 'rxjs';
 import { HttpClient } from '@angular/common/http';
-
+import { MatSnackBar } from '@angular/material/snack-bar';
 
 @Injectable({
   providedIn: 'root',
@@ -12,7 +12,8 @@ export class CategoryService implements OnInit {
   baseUrl = "http://localhost:8080/categories"
 
   constructor(
-    private http: HttpClient
+    private http: HttpClient,
+    private snack: MatSnackBar
   ){}
 
   ngOnInit(): void {
@@ -20,7 +21,12 @@ export class CategoryService implements OnInit {
   }
 
   showMessage(msg: string): void {
-    console.log(msg)
+    this.snack.open(msg, '' , {
+      duration: 3000,
+      panelClass:['success-snackbar'],
+      horizontalPosition: 'right',
+      verticalPosition: 'bottom'
+    })
   }
 
   create(category: Category): Observable<Category> {
@@ -44,6 +50,11 @@ export class CategoryService implements OnInit {
   delete(id: string): Observable<Category> {
     const url = `${this.baseUrl}/${id}`
     return this.http.delete<Category>(url)
+  }
+
+  countCategories(): Observable<number> {
+    const url = `${this.baseUrl}/count`
+    return this.http.get<number>(url)
   }
 
 }

@@ -12,7 +12,9 @@ import { FormsModule } from '@angular/forms'
 })
 export class CategoryCreate implements OnInit{
 
-  category: Category = {
+
+
+ category: Category = {
     name: '',
     description: '',
     isActive: true
@@ -30,7 +32,7 @@ export class CategoryCreate implements OnInit{
 
   createCategory(): void {
     this.service.create(this.category).subscribe(() => {
-      this.service.showMessage("Category create succesfully")
+      this.service.showMessage("Created successfully!")
       this.router.navigate(["/categories"])
     })
   }
