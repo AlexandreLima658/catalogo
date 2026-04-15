@@ -134,11 +134,10 @@ public class CategoryController {
 
 ## ⚙️ Como Rodar o Projeto
 
-### 🔙 Backend (Quarkus)
+### 🔙 Backend (Quarkus) - App quarkus
 
 ```bash
 git clone <repo-backend>
-cd backend
 
 ./mvnw quarkus:dev
 ```
@@ -154,7 +153,6 @@ O Quarkus irá automaticamente:
 
 ```bash
 git clone <repo-frontend>
-cd frontend
 
 npm install
 ng serve
