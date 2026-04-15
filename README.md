@@ -1,59 +1,221 @@
-# Catalogo
+# 📊 Dashboard de Gestão - Angular + Quarkus
 
-This project was generated using [Angular CLI](https://github.com/angular/angular-cli) version 21.2.5.
+## 🚀 Sobre o Projeto
 
-## Development server
+Este projeto é uma aplicação fullstack para visualização e gerenciamento de dados, construída com **Angular** no frontend e **Java + Quarkus** no backend.
 
-To start a local development server, run:
+O foco atual da aplicação é o gerenciamento de **categorias**, com operações completas de CRUD (Create, Read, Update, Delete), além da exibição de métricas no dashboard.
+
+---
+
+## 🧱 Arquitetura
+
+A aplicação segue uma arquitetura simples e eficiente:
+
+### 🔹 Backend (Quarkus)
+
+* API REST utilizando **Quarkus**
+* Implementação baseada no padrão **Active Record Pattern**, utilizando **Panache**
+* Estrutura:
+
+  * Resource (camada de entrada HTTP)
+  * Entity (contendo regras e persistência)
+
+### 🔹 Frontend (Angular)
+
+* SPA (Single Page Application)
+* Comunicação com backend via HTTP
+* Componentização e uso de RxJS
+
+---
+
+## 🛠️ Tecnologias Utilizadas
+
+### 🔙 Backend
+
+* Java 17+
+* Quarkus
+* RESTEasy (JAX-RS)
+* Hibernate ORM com Panache
+* Active Record Pattern
+* Banco de dados MySQL (provisionado automaticamente em ambiente de desenvolvimento pelo Quarkus Dev Services)
+
+### 🔜 Frontend
+
+* Angular
+* TypeScript
+* Tailwind CSS
+* Chart.js
+* RxJS
+
+---
+
+## ⚡ Active Record Pattern
+
+O projeto utiliza o padrão **Active Record**, onde a própria entidade é responsável pelas operações de persistência.
+
+### Exemplo:
+
+```java
+@Entity
+public class Category extends PanacheEntityBase {
+
+    @Id
+    @GeneratedValue(strategy = GenerationType.UUID)
+    public String name;
+
+    public String description;
+    public Boolean active;
+
+}
+```
+
+Esse padrão reduz a complexidade ao eliminar a necessidade de uma camada de repository explícita.
+
+---
+
+## 🗄️ Banco de Dados
+
+Durante o desenvolvimento, o Quarkus utiliza **Dev Services**, que automaticamente sobe um container com banco de dados (MySQL) sem necessidade de configuração manual.
+
+Isso permite:
+
+* 🚀 Setup rápido
+* 🐳 Integração automática com Docker
+* ⚡ Ambiente pronto para desenvolvimento
+
+---
+
+## 📊 Funcionalidades
+
+* 📌 CRUD completo de categorias
+* 📌 Listagem de categorias
+* 📌 Atualização de dados
+* 📌 Exclusão de registros
+* 📌 Dashboard com métricas (frontend)
+* 📌 Integração com API REST
+
+---
+
+## 🔌 Integração Frontend ↔ Backend
+
+A comunicação é feita via HTTP.
+
+### Exemplo (Angular):
+
+```ts
+this.http.get('http://localhost:8080/categories');
+```
+
+### Exemplo (Quarkus):
+
+```java
+@Path("/categories")
+@Produces(MediaType.APPLICATION_JSON)
+@Consumes(MediaType.APPLICATION_JSON)
+public class CategoryController {
+
+    @POST
+    @Transactional
+    public Response createCategory(final CategoryEntity category){
+        return Response.ok(this.service.create(category)).build();
+    }
+
+    @GET
+    @Path("/{id}")
+    public Response getById(@PathParam("id") UUID categoryId){
+        return Response.ok(this.service.findById(categoryId)).build();
+    }
+
+}
+```
+
+---
+
+## ⚙️ Como Rodar o Projeto
+
+### 🔙 Backend (Quarkus)
 
 ```bash
+git clone <repo-backend>
+cd backend
+
+./mvnw quarkus:dev
+```
+
+O Quarkus irá automaticamente:
+
+* Subir a aplicação
+* Inicializar o banco de dados (via Dev Services)
+
+---
+
+### 🔜 Frontend (Angular)
+
+```bash
+git clone <repo-frontend>
+cd frontend
+
+npm install
 ng serve
 ```
 
-Once the server is running, open your browser and navigate to `http://localhost:4200/`. The application will automatically reload whenever you modify any of the source files.
+Acesse:
 
-## Code scaffolding
-
-Angular CLI includes powerful code scaffolding tools. To generate a new component, run:
-
-```bash
-ng generate component component-name
+```
+http://localhost:4200
 ```
 
-For a complete list of available schematics (such as `components`, `directives`, or `pipes`), run:
+---
 
-```bash
-ng generate --help
+## 🔐 CORS
+
+Caso necessário:
+
+```properties
+quarkus.http.cors=true
+quarkus.http.cors.origins=*
 ```
 
-## Building
+---
 
-To build the project run:
+## 📁 Estrutura do Projeto
 
-```bash
-ng build
+### Backend
+
+```
+src/main/java
+ ├── controller
+ ├── entity
 ```
 
-This will compile your project and store the build artifacts in the `dist/` directory. By default, the production build optimizes your application for performance and speed.
+### Frontend
 
-## Running unit tests
-
-To execute unit tests with the [Vitest](https://vitest.dev/) test runner, use the following command:
-
-```bash
-ng test
+```
+src/app/
+ ├── components
+ ├── services
+ ├── pages
 ```
 
-## Running end-to-end tests
+---
 
-For end-to-end (e2e) testing, run:
+## 📈 Melhorias Futuras
 
-```bash
-ng e2e
-```
+* 🔄 Paginação no backend
+* 🔍 Filtros por categoria
+* 🔐 Autenticação com JWT / Keycloak
+* 📊 Expansão do dashboard
+* 🧪 Testes automatizados
 
-Angular CLI does not come with an end-to-end testing framework by default. You can choose one that suits your needs.
+---
 
-## Additional Resources
+## 👨‍💻 Autor
 
-For more information on using the Angular CLI, including detailed command references, visit the [Angular CLI Overview and Command Reference](https://angular.dev/tools/cli) page.
+Desenvolvido por **Carlos Alexandre**
+
+---
+
+## 📄 Licença
+
+Este projeto está sob a licença MIT.
