@@ -1,4 +1,4 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, inject, OnInit } from '@angular/core';
 import { FormsModule, FormGroup, FormBuilder, Validators,ReactiveFormsModule } from '@angular/forms';
 import { CommonModule } from '@angular/common'
 import { CategoryService } from '../category-service';
@@ -16,12 +16,10 @@ export class CategoryDelete implements OnInit {
   form!: FormGroup
   categoryId!: string
 
-  constructor(
-    private service: CategoryService,
-    private router: Router,
-    private route: ActivatedRoute,
-    private fb: FormBuilder
-  ){}
+  readonly router = inject(Router)
+  readonly _service = inject(CategoryService)
+  readonly route = inject(ActivatedRoute)
+  readonly fb = inject(FormBuilder)
 
   ngOnInit(): void {
 
@@ -34,14 +32,14 @@ export class CategoryDelete implements OnInit {
 
     if(id) {
       this.categoryId = id;
-      this.service.readById(id).subscribe(category => {
+      this._service.readById(id).subscribe(category => {
         this.form.patchValue({
           name: category.name,
           description: category.description
         })
       })
     } else {
-      this.service.showMessage("id not found")
+      this._service.showMessage("id not found")
     }
   }
 
@@ -50,12 +48,12 @@ export class CategoryDelete implements OnInit {
     const id = this.categoryId
 
     if(id) {
-      this.service.delete(id).subscribe(() => {
-        this.service.showMessage("Category deleted")
+      this._service.delete(id).subscribe(() => {
+        this._service.showMessage("Category deleted")
         this.router.navigate(["/categories"])
       })
     } else {
-      this.service.showMessage("Id not found")
+      this._service.showMessage("Id not found")
     }
   }
 

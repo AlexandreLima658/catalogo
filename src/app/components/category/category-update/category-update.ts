@@ -1,4 +1,4 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, inject, OnInit } from '@angular/core';
 import { CategoryService } from '../category-service';
 
 import { ActivatedRoute, Router } from '@angular/router';
@@ -18,12 +18,10 @@ export class CategoryUpdate implements OnInit{
   form!: FormGroup
   categoryId!: string
 
-  constructor(
-    private service: CategoryService,
-    private router: Router,
-    private route: ActivatedRoute,
-    private fb: FormBuilder
-  ){}
+  readonly _service = inject(CategoryService)
+  readonly router = inject(Router)
+  readonly route = inject(ActivatedRoute)
+  readonly fb = inject(FormBuilder)
 
   ngOnInit(): void {
 
@@ -36,14 +34,14 @@ export class CategoryUpdate implements OnInit{
 
     if(id) {
       this.categoryId = id
-      this.service.readById(id).subscribe(category => {
+      this._service.readById(id).subscribe(category => {
         this.form.patchValue({
           name: category.name,
           description: category.description
         })
       })
     } else {
-      this.service.showMessage("id not found")
+      this._service.showMessage("id not found")
     }
   }
 
@@ -56,8 +54,8 @@ export class CategoryUpdate implements OnInit{
       isActive: true
     };
 
-    this.service.update(category).subscribe(() => {
-      this.service.showMessage("Category Updated")
+    this._service.update(category).subscribe(() => {
+      this._service.showMessage("Category Updated")
       this.router.navigate(["/categories"])
     })
   }

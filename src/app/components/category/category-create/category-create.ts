@@ -1,4 +1,4 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, inject, OnInit } from '@angular/core';
 import { Router } from '@angular/router';
 import { Category } from '../category-model';
 import { CategoryService } from '../category-service';
@@ -13,6 +13,8 @@ import { FormsModule } from '@angular/forms'
 export class CategoryCreate implements OnInit{
 
 
+readonly _service = inject(CategoryService)
+readonly router = inject(Router)
 
  category: Category = {
     name: '',
@@ -20,19 +22,14 @@ export class CategoryCreate implements OnInit{
     isActive: true
   }
 
-  constructor(
-    private router: Router,
-    private service: CategoryService
-  ){}
-
 
   ngOnInit(): void {
 
   }
 
   createCategory(): void {
-    this.service.create(this.category).subscribe(() => {
-      this.service.showMessage("Created successfully!")
+    this._service.create(this.category).subscribe(() => {
+      this._service.showMessage("Created successfully!")
       this.router.navigate(["/categories"])
     })
   }
