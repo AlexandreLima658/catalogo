@@ -1,4 +1,4 @@
-import { ChangeDetectorRef, Component, OnInit } from '@angular/core';
+import { ChangeDetectorRef, Component, inject, OnInit } from '@angular/core';
 import { CategoryService } from '../category-service';
 import { Category } from '../category-model';
 import { RouterLink } from "@angular/router";
@@ -14,13 +14,11 @@ export class CategoryRead implements OnInit{
 
   categories: Category[]
 
-  constructor(
-    private service: CategoryService,
-    private cd: ChangeDetectorRef
-  ){}
+  readonly _service = inject(CategoryService)
+  readonly cd = inject(ChangeDetectorRef)
 
   ngOnInit(): void {
-    this.service.read().subscribe(category => {
+    this._service.read().subscribe(category => {
       this.categories = category
       this.cd.detectChanges()
       console.log(category)
