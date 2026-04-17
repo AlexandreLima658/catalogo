@@ -1,0 +1,71 @@
+<section class="flex items-center justify-center py-12 px-4">
+  <div class="grid md:grid-cols-2 md:gap-10 lg:gap-20 max-w-7xl w-full items-center">
+    <div class="p-5">
+      <h1 class="text-3xl font-semibold text-white text-center  mb-3 tracking-tight">
+        Sign in to your account
+      </h1>
+      <div class="mt-10 sm:mx-auto sm:w-full sm:max-w-sm">
+    <form action="#" method="POST" class="space-y-6">
+      <div>
+        <label for="email" class="block text-sm/6 font-medium text-gray-100">Email address</label>
+        <div class="mt-2">
+          <input id="email" type="email" name="email" required autocomplete="email" class="block w-full rounded-md bg-white/5 px-3 py-1.5 text-base text-white outline-1 -outline-offset-1 outline-white/10 placeholder:text-gray-500 focus:outline-2 focus:-outline-offset-2 focus:outline-indigo-500 sm:text-sm/6" />
+        </div>
+      </div>
+      <div>
+        <div class="flex items-center justify-between">
+          <label for="password" class="block text-sm/6 font-medium text-gray-100">Password</label>
+          <div class="text-sm">
+            <a href="#" class="font-semibold text-indigo-400 hover:text-indigo-300">Forgot password?</a>
+          </div>
+        </div>
+        <div class="mt-2">
+          <input id="password" type="password" name="password" required autocomplete="current-password" class="block w-full rounded-md bg-white/5 px-3 py-1.5 text-base text-white outline-1 -outline-offset-1 outline-white/10 placeholder:text-gray-500 focus:outline-2 focus:-outline-offset-2 focus:outline-indigo-500 sm:text-sm/6" />
+        </div>
+      </div>
+
+      <div>
+        <button type="submit" class="flex w-full justify-center rounded-md bg-indigo-500 px-3 py-1.5 text-sm/6 font-semibold text-white hover:bg-indigo-400 focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-indigo-500">Sign in</button>
+      </div>
+    </form>
+    <div class="my-5 flex w-full items-center gap-4">
+      <div class="h-px w-full bg-gray-500"></div>
+       <span class="w-full text-sm text-nowrap text-gray-500 ">Or sign with other account</span>
+      <div class="h-px w-full bg-gray-500"></div>
+    </div>
+    <div class="grid grid-cols-2 gap-6">
+       <button type="button"
+        class="flex py-2 w-full items-center justify-center gap-2 rounded bg-gray-800 text-gray-300 hover:bg-gray-900">
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 48 48" width="20" height="20">
+            <path fill="#FFC107"
+                d="M43.611 20.083H42V20H24v8h11.303c-1.649 4.657-6.08 8-11.303 8-6.627 0-12-5.373-12-12s5.373-12 12-12c3.059 0 5.842 1.154 7.961 3.039l5.657-5.657C34.046 6.053 29.268 4 24 4 12.955 4 4 12.955 4 24s8.955 20 20 20 20-8.955 20-20c0-1.341-.138-2.65-.389-3.917">
+            </path>
+            <path fill="#FF3D00"
+                d="m6.306 14.691 6.571 4.819C14.655 15.108 18.961 12 24 12c3.059 0 5.842 1.154 7.961 3.039l5.657-5.657C34.046 6.053 29.268 4 24 4 16.318 4 9.656 8.337 6.306 14.691">
+            </path>
+            <path fill="#4CAF50"
+                d="M24 44c5.166 0 9.86-1.977 13.409-5.192l-6.19-5.238A11.9 11.9 0 0 1 24 36c-5.202 0-9.619-3.317-11.283-7.946l-6.522 5.025C9.505 39.556 16.227 44 24 44">
+            </path>
+            <path fill="#1976D2"
+                d="M43.611 20.083H42V20H24v8h11.303a12.04 12.04 0 0 1-4.087 5.571l.003-.002 6.19 5.238C36.971 39.205 44 34 44 24c0-1.341-.138-2.65-.389-3.917">
+            </path>
+        </svg>
+        Google
+    </button>
+    <button type="button"
+        class="flex py-2 w-full items-center justify-center gap-2 rounded bg-gray-800 text-gray-300 hover:bg-gray-900">
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" width="20" height="20">
+            <path
+                d="M12 0c-6.626 0-12 5.373-12 12 0 5.302 3.438 9.8 8.207 11.387.599.111.793-.261.793-.577v-2.234c-3.338.726-4.033-1.416-4.033-1.416-.546-1.387-1.333-1.756-1.333-1.756-1.089-.745.083-.729.083-.729 1.205.084 1.839 1.237 1.839 1.237 1.07 1.834 2.807 1.304 3.492.997.107-.775.418-1.305.762-1.604-2.665-.305-5.467-1.334-5.467-5.931 0-1.311.469-2.381 1.236-3.221-.124-.303-.535-1.524.117-3.176 0 0 1.008-.322 3.301 1.23.957-.266 1.983-.399 3.003-.404 1.02.005 2.047.138 3.006.404 2.291-1.552 3.297-1.23 3.297-1.23.653 1.653.242 2.874.118 3.176.77.84 1.235 1.911 1.235 3.221 0 4.609-2.807 5.624-5.479 5.921.43.372.823 1.102.823 2.222v3.293c0 .319.192.694.801.576 4.765-1.589 8.199-6.086 8.199-11.386 0-6.627-5.373-12-12-12z"
+                fill="#fff"></path>
+        </svg>
+        Github
+    </button>
+    </div>
+  </div>
+    </div>
+    <div class="rounded-3xl p-10 relative min-h-[662px] w-full max-w-[520px] hidden md:flex flex-col justify-between overflow-hidden">
+      <img src="https://assets.prebuiltui.com/images/components/form/form-rightside-image.png" alt="3D shapes" class="absolute inset-0 w-full h-full object-cover" />
+    </div>
+  </div>
+</section>

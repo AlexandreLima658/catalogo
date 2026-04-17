@@ -24,7 +24,7 @@
           </li>
         </ul>
       </a>
-       <a routerLink="" class="block px-6  hover:bg-indigo-700 py-2 rounded-lg trasition mt-auto">
+       <a (click)="logout()"  class="block px-6 cursor-pointer hover:bg-indigo-700 py-2 rounded-lg trasition mt-auto">
         <ul>
           <li class="inline-flex items-center gap-x-3.5">
           <svg width="20" height="20" viewBox="0 0 20 20" fill="none" xmlns="http://www.w3.org/2000/svg">
@@ -35,11 +35,7 @@
         </ul>
       </a>
     </nav>
-
   </aside>
-  <div class="flex-1 p-6 overflow-auto">
-     <router-outlet></router-outlet>
-  </div>
 </div>
 
 
