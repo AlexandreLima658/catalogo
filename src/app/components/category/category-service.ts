@@ -1,4 +1,4 @@
-import { Injectable, OnInit } from '@angular/core';
+import { inject, Injectable, OnInit } from '@angular/core';
 import { Category } from './category-model';
 import { Observable } from 'rxjs';
 import { HttpClient } from '@angular/common/http';
@@ -11,10 +11,8 @@ export class CategoryService implements OnInit {
 
   baseUrl = "http://localhost:8080/categories"
 
-  constructor(
-    private http: HttpClient,
-    private snack: MatSnackBar
-  ){}
+  readonly http = inject(HttpClient)
+  readonly snack = inject(MatSnackBar)
 
   ngOnInit(): void {
 
